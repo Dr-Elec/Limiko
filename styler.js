@@ -1,4 +1,4 @@
-import { RandomInt } from "stuff/lib.js"
+import { RandomInt } from "./stuff/lib.js"
 let themeLink = document.querySelector("#theme")
 let img = document.querySelector(".bg-image")
 

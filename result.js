@@ -1,4 +1,4 @@
-import { confugureAudio } from "stuff/audio.js";
+import { confugureAudio } from "./stuff/audio.js";
 let questions = JSON.parse(sessionStorage.getItem("questions"));
 
 let block = document.querySelector(".ans-block");

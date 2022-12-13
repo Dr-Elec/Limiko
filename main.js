@@ -1,6 +1,6 @@
 
-import { confugureAudio } from "stuff/audio.js";
-import { RandomInt, shuffle} from "stuff/lib.js"
+import { confugureAudio } from "./stuff/audio.js";
+import { RandomInt, shuffle} from "./stuff/lib.js"
 
 let root = document.querySelector(".container section");
 
