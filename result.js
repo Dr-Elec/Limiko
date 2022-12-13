@@ -1,4 +1,4 @@
-import { confugureAudio } from "./stuff/audio.js";
+import { confugureAudio } from "stuff/audio.js";
 let questions = JSON.parse(sessionStorage.getItem("questions"));
 
 let block = document.querySelector(".ans-block");
@@ -9,7 +9,7 @@ questions.forEach((cur,index)=>{
 	if(cur.given == cur.answer) correct++;
 	if(cur.given == undefined) cur.given = "Нет ответа"
 	block.innerHTML+=`<div class="ans ${cur.given == cur.answer ?"right":"wrong"}">
-			<button class="quest-plb" src="/sound/${cur.file}">⏵</button>
+			<button class="quest-plb" src="sound/${cur.file}">⏵</button>
 			
 			<p class="given" id="n${index}">${cur.given}</p>
 			<p class="answer" id="n${index}">${cur.answer}</p>

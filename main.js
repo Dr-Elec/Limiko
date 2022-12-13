@@ -1,13 +1,13 @@
 
-import { confugureAudio } from "./stuff/audio.js";
-import { RandomInt, shuffle} from "/stuff/lib.js"
+import { confugureAudio } from "stuff/audio.js";
+import { RandomInt, shuffle} from "stuff/lib.js"
 
 let root = document.querySelector(".container section");
 
 
 let questions = {};
 
-let response = await fetch("/question.json");
+let response = await fetch("question.json");
 
 if (response.ok) { // если HTTP-статус в диапазоне 200-299
 	// получаем тело ответа (см. про этот метод ниже)
@@ -22,7 +22,7 @@ else {
 shuffle(questions)
 for (let i = 0; i < questions.length; i++) {
 	
-	let src = "/sound/" + questions[i].file
+	let src = "sound/" + questions[i].file
 
 	//let Ans = 
 	let ans = []; let usedWrongAns = [];
@@ -68,7 +68,7 @@ document.querySelectorAll(".quest-variant").forEach((cur) => {
 
 document.querySelector(".confirm").onclick = () => {
 	sessionStorage.setItem("questions",JSON.stringify(questions));
-	document.location.href = '/result.html'
+	document.location.href = './result.html'
 }
 /* устаревшее
 function configureA(id) {

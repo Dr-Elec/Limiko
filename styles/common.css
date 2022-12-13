@@ -1,11 +1,11 @@
 @font-face {
     font-family: "Text";
-    src: url(/stuff/Neucha-Regular.ttf);
+    src: url(../stuff/Neucha-Regular.ttf);
 }
 
 @font-face {
     font-family: "Title";
-    src: url(/stuff/BalsamiqSans-Regular.ttf);
+    src: url(../stuff/BalsamiqSans-Regular.ttf);
 }
 
 body {
