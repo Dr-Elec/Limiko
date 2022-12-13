@@ -1,0 +1,9 @@
+:root {
+	--main-color: #83d7ffba;
+	--other-color: #EFFFFD;
+	--border-color:#3784abcc;
+	--text-color: #000000;
+
+	--right-color: green;
+	--wrong-color:red;
+}

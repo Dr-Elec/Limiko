@@ -1,0 +1,36 @@
+.subtitle
+{
+	color:var(--text-color);
+
+	font-size: 160%;
+}
+.title
+{
+	color:var(--text-color);
+
+	font-size: 260%;
+	font-family: "Title";
+}
+.title-separator {
+	width:60%;
+	margin: 1% 0;
+
+	background:var(--text-color);
+
+	border:none;
+	border-radius: 4px;
+}
+.start
+{
+	color:var(--text-color);
+    background: var(--main-color);
+
+	font-family: "Title";
+    font-size: 150%;
+
+	border-radius:10px;
+	border:3px solid var(--border-color);;
+
+	width:40%;
+	height:20%;
+}

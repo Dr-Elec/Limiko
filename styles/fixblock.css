@@ -1,0 +1,106 @@
+.fixblock {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 7%;
+	width: 100%;
+	padding: 0 3%;
+	border-top: 5px solid var(--border-color);
+	display: flex;
+	justify-content: space-around;
+	background: var(--main-color);
+}
+
+.themeblock {
+	width: 14%;
+
+	display: flex;
+	justify-content: space-around;
+}
+
+.themebutton {
+	border: none;
+	background: none;
+	margin: 3%;
+}
+
+.themebutton * {
+	height: 90%;
+	fill: var(--text-color);
+
+}
+
+.audioblock {
+	width: 50%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.audioblock .playB {
+	color: var(--text-color);
+	background: var(--main-color);
+	font-size: 150%;
+
+	border-radius: 10px;
+	border: 3px solid var(--border-color);
+	;
+
+	width: 10%;
+	height: 80%;
+}
+
+.audioblock #volume {
+
+	width: 15%;
+	height: 100%;
+}
+
+.audioblock #pos {
+	margin: 0 1%;
+
+	width: 65%;
+	height: 100%;
+}
+input[type=range] {
+	-webkit-appearance: none;
+	background:transparent;
+}
+
+input[type=range]::-moz-range-track {
+	-webkit-appearance: none;
+	height: 10%;
+	border-radius: 4em;
+	border:2px solid var(--text-color);
+	background: transparent
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	-webkit-appearance: none;
+
+	border: salmon;
+	background: red;
+}
+
+input[type=range]::-moz-range-thumb {
+	height: 20px;
+	width: 20px;
+	border-radius: 40%;
+	border:2px solid var(--border-color);
+	background: var(--text-color);
+}
+
+input[type=range]::-ms-thumb {
+	height: 20px;
+	width: 20px;
+	border-radius: 40%;
+	background: var(--text-color);
+}
+
+input[type=range]::-webkit-slider-thumb {
+	height: 20px;
+	width: 20px;
+	border-radius: 40%;
+	background: var(--text-color);
+}
+
