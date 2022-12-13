@@ -37,7 +37,7 @@
 }
 .selected
 {
-	background-color:#ccccff;
+	background-color:var(--selected-bg-color);
 	border-color:#aaaacc;
 }
 

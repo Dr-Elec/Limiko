@@ -3,63 +3,77 @@ let themeLink = document.querySelector("#theme")
 let img = document.querySelector(".bg-image")
 
 
-
-let darkTheme = sessionStorage.getItem("themeChange") == "true";
-
-let lastRnd = 1;
-function changeBg(prevent = false) {
-	if (!(prevent)) return;
-	let curRnd = RandomInt(1, 6);
-	while (lastRnd == curRnd) {
-		curRnd = RandomInt(1, 6)
+export let theme = JSON.parse(sessionStorage.getItem("theme"));
+export let icon = {
+	dark: `<img src="" alt="DarkIcon">`,
+	light: `<img src="" alt="LightIcon">`
+}
+if (theme == null) {
+	theme = {
+		dark: true,
+		bg: 1,
 	}
-	img.src = "backgrounds/" + (darkTheme ? `dark-${curRnd}.jpg` : `light-${curRnd}.jpg`)
-	lastRnd = curRnd;
+	sessionStorage.setItem("theme", JSON.stringify(theme))
 }
 
-export function themeChange(themeType) {
-	sessionStorage.setItem("themeChange", (themeType == "dark" ? true : false))
-	let prevent = (themeType == "dark") != darkTheme
-	darkTheme = sessionStorage.getItem("themeChange") == "true";
-	themeLink.href = "styles/" + (darkTheme ? "dark-bg.css" : "light-bg.css")
-	changeBg(prevent);
+export function applyBg() {
+
+	img.src = "backgrounds/" + (theme.dark ? `dark-${theme.bg}.jpg` : `light-${theme.bg}.jpg`)
+	sessionStorage.setItem("theme", JSON.stringify(theme))
+}
+
+export function applyTheme() {
+
+	themeLink.href = "styles/" + (theme.dark ? "dark-bg.css" : "light-bg.css")
+	applyBg();
 }
 
 window.onload = () => {
 
-	themeChange(darkTheme ? `dark` : `light`)
-	changeBg(true);
+	applyTheme()
+	applyBg();
 
-	let DarkEl = document.querySelector(".themebutton#dark")
-	let LightEl = document.querySelector(".themebutton#light")
+	let ThemeEl = document.querySelector(".themebutton#theme")
 	let BackEl = document.querySelector(".themebutton#back")
+	let BgEl = document.querySelector(".themebutton#bg")
 
-	DarkEl.onclick = () => {
-		themeChange('dark')
+	ThemeEl.onclick = () => {
+		theme.dark = !theme.dark;
+		applyTheme();
+		ThemeEl.innerHTML = (theme.dark ? icon.dark : icon.light)
 	}
 
-	LightEl.onclick = () => {
-		themeChange('light')
+	BgEl.onclick = () => {
+		theme.bg++; if (theme.bg > 6) theme.bg = 1;
+		applyBg();
 	}
-
+	
 	BackEl.onclick = () => {
-		changeBg(true);
+		document.location.href = 'index.html'
 	}
 
 	fetch("stuff/DarkIcon.svg")
-	.then(response => response.text())
-	.then(text => DarkEl.innerHTML = text)
-	.catch(() => DarkEl.innerHTML = `<img src="" alt="dark">`)
+		.then(response => response.text())
+		.then(text => {
+			icon.dark = text;
+			if (theme.dark) ThemeEl.innerHTML = icon.dark;
+		})
 
 	fetch("stuff/LightIcon.svg")
-	.then(response => response.text())
-	.then(text => LightEl.innerHTML = text)
-	.catch(() => LightEl.innerHTML = `<img src="" alt="light">`)
-	
-	fetch("stuff/PicIcon.svg")
-	.then(response => response.text())
-	.then(text => BackEl.innerHTML = text)
-	.catch(() => BackEl.innerHTML = `<img src="" alt="back">`)
+		.then(response => response.text())
+		.then(text => {
+			icon.light = text;
+			if (!theme.dark) ThemeEl.innerHTML = icon.light;
+		})
 
-	
+	fetch("stuff/PicIcon.svg")
+		.then(response => response.text())
+		.then(text => BgEl.innerHTML = text)
+		.catch(() => BgEl.innerHTML = `<img src="" alt="bg">`)
+
+	fetch("stuff/BackIcon.svg")
+		.then(response => response.text())
+		.then(text => BackEl.innerHTML = text)
+		.catch(() => BackEl.innerHTML = `<img src="" alt="back">`)
+
 }
