@@ -1,4 +1,4 @@
-import { RandomInt } from "./stuff/lib.js"
+
 let themeLink = document.querySelector("#theme")
 let img = document.querySelector(".bg-image")
 
@@ -28,7 +28,7 @@ export function applyTheme() {
 	applyBg();
 }
 
-window.onload = () => {
+export let start = () => {
 
 	applyTheme()
 	applyBg();
@@ -77,3 +77,4 @@ window.onload = () => {
 		.catch(() => BackEl.innerHTML = `<img src="" alt="back">`)
 
 }
+window.onload = start;

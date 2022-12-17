@@ -1,4 +1,5 @@
 import { confugureAudio } from "./stuff/audio.js";
+import { start } from "./styler.js";
 let questions = JSON.parse(sessionStorage.getItem("questions"));
 
 let block = document.querySelector(".ans-block");
@@ -34,12 +35,13 @@ function updateScore() {
     resultEl.innerHTML = Math.round(val*1000)/1000+"%";
     counter++;
 }
-let f = window.onload;
+
 let g = () => {
 	updateScoreInt = setInterval(updateScore, 25)
 }
+
 window.onload = () => {
 	setTimeout(g,1000)
 	confugureAudio();
-	f();
+	start();
 }
